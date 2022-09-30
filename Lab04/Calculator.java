@@ -1,3 +1,5 @@
+package com.company;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -67,7 +69,7 @@ public class Calculator extends JFrame implements ActionListener{
     }
 
     public void actionPerformed(ActionEvent e){
-        if(Integer.___(e.getActionCommand())){
+        if(isNum(e.getActionCommand())){
             if (!calcTF.getText().equals("0")){
                 calcTF.setText(calcTF.getText() + e.getActionCommand());
             }
@@ -84,21 +86,15 @@ public class Calculator extends JFrame implements ActionListener{
             }
             calcTF.setText("0");
             if(!e.getActionCommand().equals("=")) {
-                if(<there is not a second number using some flag>){
+               // if(<there is not a second number using some flag>){
                     operator = e.getActionCommand().charAt(0);
-                } else {
-                    <implement a private method for calculating the result>
-                }
+//                } else {
+//                    int result = performCalulation();
+//                    numberA = result;
+//                    calcTF.setText("" + result);
+//                }
             } else {
-                int result;
-                <implement a calulate method>
-                switch (operator){
-                    case'+':
-                        result = numberA + numberB;
-                        break;
-                    //case '-', '*', '/'
-
-                }
+                int result = performCalulation();
                 calcTF.setText("" + result);
             }
 
@@ -113,5 +109,19 @@ public class Calculator extends JFrame implements ActionListener{
 //                    calcTF.setText(e.getActionCommand());
 //                }
 //        }
+    }
+
+    private int performCalulation(){
+        return switch (operator) {
+            case '+' -> numberA + numberB;
+            case '-' -> numberA - numberB;
+            case '*' -> numberA * numberB;
+            case '/' -> numberA / numberB;
+            default -> numberA;
+        };
+    }
+
+    private boolean isNum(String number) {
+        return number.matches("[-+]?\\d*\\.?\\d+");
     }
 }
