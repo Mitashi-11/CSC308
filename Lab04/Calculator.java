@@ -90,7 +90,7 @@ public class Calculator extends JFrame implements ActionListener{
             if (isFirst) {
                 numberA = Integer.parseInt(calcTF.getText());
                 isFirst = false;
-            } else{
+            } else {
                 numberB = Integer.parseInt(calcTF.getText());
                 secondNum = true;
             }
@@ -102,7 +102,7 @@ public class Calculator extends JFrame implements ActionListener{
                     int result = performCalulation();
                     numberA = result;
                     operator = e.getActionCommand().charAt(0);
-                    calcTF.setText("" + result);
+                    //calcTF.setText("" + result);
                     secondNum = false;
                 }
             } else {
