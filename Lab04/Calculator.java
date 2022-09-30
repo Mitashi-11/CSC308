@@ -22,8 +22,11 @@ public class Calculator extends JFrame implements ActionListener{
     int numberA, numberB;
     char operator;
     boolean isFirst = true;
+    boolean secondNum = false;
 
-
+    /**
+     * Main creates a new Calculator window and allows it to be seen and closed properly.
+     */
     public static void main(String[]args){
         Calculator window = new Calculator();
         window.setSize(300,600);
@@ -31,6 +34,11 @@ public class Calculator extends JFrame implements ActionListener{
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
+    /**
+     * App constructor
+     * Uses inheritance from JFrame to create a window with the elements
+     * neccessary for a calculator.
+     */
     public Calculator() {
         super("Pseudo Calculator");
         BorderLayout layout = new BorderLayout();
@@ -63,11 +71,13 @@ public class Calculator extends JFrame implements ActionListener{
             box.add(numbers[i]);
         }
 
-
-
-
     }
 
+    /**
+     * actionPerformed - implementation from ActionListener interface
+     *      provides interactiveity for the calculator buttons
+     * @param e ActionEvent notifying that a screen item has been selected
+     */
     public void actionPerformed(ActionEvent e){
         if(isNum(e.getActionCommand())){
             if (!calcTF.getText().equals("0")){
@@ -83,34 +93,34 @@ public class Calculator extends JFrame implements ActionListener{
                 isFirst = false;
             } else{
                 numberB = Integer.parseInt(calcTF.getText());
+                secondNum = true;
             }
             calcTF.setText("0");
             if(!e.getActionCommand().equals("=")) {
-               // if(<there is not a second number using some flag>){
+                if(!secondNum){
                     operator = e.getActionCommand().charAt(0);
-//                } else {
-//                    int result = performCalulation();
-//                    numberA = result;
-//                    calcTF.setText("" + result);
-//                }
+                } else {
+                    int result = performCalulation();
+                    numberA = result;
+                    operator = e.getActionCommand().charAt(0);
+                    calcTF.setText("" + result);
+                    secondNum = false;
+                }
             } else {
                 int result = performCalulation();
                 calcTF.setText("" + result);
+                isFirst = true;
+                secondNum = false;
             }
 
         }
-
-//        switch((e.getActionCommand())){
-//            default:
-//                if (!calcTF.getText().equals("0")){
-//                    calcTF.setText(calcTF.getText() + e.getActionCommand());
-//                }
-//                else{
-//                    calcTF.setText(e.getActionCommand());
-//                }
-//        }
     }
 
+    /**
+     * performCalculation - method to perform the math operation
+     *      using numberA, numberB, and operator
+     * @return int - the result of the math operation
+     */
     private int performCalulation(){
         return switch (operator) {
             case '+' -> numberA + numberB;
@@ -121,6 +131,11 @@ public class Calculator extends JFrame implements ActionListener{
         };
     }
 
+    /**
+     * isNum - method to determine if the string is numeric
+     * @param number - String in question
+     * @return - true if the string is numeric, false otherwise
+     */
     private boolean isNum(String number) {
         return number.matches("[-+]?\\d*\\.?\\d+");
     }
