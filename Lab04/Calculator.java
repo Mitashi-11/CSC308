@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
  * @author Andrew Estrada
  * @author Jamie Luna
  * @author Teja Kandibanda
- * @author Bret Craig
  * @author Mitashi Parikh
  * @author Jason Chu
  * @version 1.0
