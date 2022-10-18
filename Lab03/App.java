@@ -1,3 +1,5 @@
+package Lab03;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,7 +23,7 @@ public class App extends JFrame implements ActionListener {
     JTextField calcTF;
 
     /**
-     * Main creates a new App window and allows it to be seen and closed properly.
+     * Main creates a new Lab03.App window and allows it to be seen and closed properly.
      */
     public static void main(String[]args){
         App window = new App();
@@ -31,14 +33,14 @@ public class App extends JFrame implements ActionListener {
     }
 
     /**
-     * App constructor
+     * Lab03.App constructor
      * Uses inheritance from JFrame to create a window with a menu and tabs
      * as specified by the requirements.
      * Each menu item has an associated ActionListener for callback to a dialog message.
      * First tab has an
      */
     public App(){
-        super("App Window");
+        super("Lab03.App Window");
 
         JMenuBar menuBar = new JMenuBar();
         JMenu menu1 = new JMenu("File");

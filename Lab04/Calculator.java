@@ -1,4 +1,4 @@
-package com.company;
+package Lab04;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +34,7 @@ public class Calculator extends JFrame implements ActionListener{
     }
 
     /**
-     * App constructor
+     * Lab03.App constructor
      * Uses inheritance from JFrame to create a window with the elements
      * neccessary for a calculator.
      */
@@ -121,13 +121,15 @@ public class Calculator extends JFrame implements ActionListener{
      * @return int - the result of the math operation
      */
     private int performCalulation(){
-        return switch (operator) {
-            case '+' -> numberA + numberB;
-            case '-' -> numberA - numberB;
-            case '*' -> numberA * numberB;
-            case '/' -> numberA / numberB;
-            default -> numberA;
-        };
+        return 0;
+        //commented out code to please my JDK
+//        return switch (operator) {
+//            case '+' -> numberA + numberB;
+//            case '-' -> numberA - numberB;
+//            case '*' -> numberA * numberB;
+//            case '/' -> numberA / numberB;
+//            default -> numberA;
+//        };
     }
 
     /**

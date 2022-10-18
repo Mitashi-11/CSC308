@@ -14,24 +14,24 @@ import java.awt.event.ActionListener;
  */
 public class App extends JFrame implements ActionListener {
     /**
-     * Main creates a new App window and allows it to be seen and closed properly.
+     * Main creates a new Lab03.App window and allows it to be seen and closed properly.
      */
     public static void main(String[]args){
-        App window = new App();
+        Lab03.App window = new Lab03.App();
         window.setSize(500,500);
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     /**
-     * App constructor
+     * Lab03.App constructor
      * Uses inheritance from JFrame to create a window with a menu and tabs
      * as specified by the requirements.
      * Each menu item has an associated ActionListener for callback to a dialog message.
      * Each tab has a unique color and label to match.
      */
     public App(){
-        super("App Window");
+        super("Lab03.App Window");
 
         JMenuBar menuBar = new JMenuBar();
         JMenu menu1 = new JMenu("File");
