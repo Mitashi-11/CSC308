@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Assignment 02
@@ -80,5 +82,11 @@ public class DotApp extends JFrame implements ActionListener, ItemListener {
         System.out.println("Cluster: " + cluster.isSelected());
         System.out.println("Line: " + line.isSelected());
         System.out.println("_________");
+        List<String> options = new ArrayList<>();
+        if(cluster.isSelected())
+            options.add("Cluster");
+        if (line.isSelected())
+            options.add("Line");
+        center.setOptionsSelected(options);
     }
 }
